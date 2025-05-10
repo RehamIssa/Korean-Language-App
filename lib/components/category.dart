@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Category extends StatelessWidget {
   const Category({
     super.key,
@@ -34,7 +33,7 @@ class Category extends StatelessWidget {
                 name,
                 style: TextStyle(
                   fontFamily: 'Zain',
-                  fontSize: 32,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Color(0xff313131),
                 ),

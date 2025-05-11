@@ -12,35 +12,33 @@ class Category extends StatelessWidget {
   final Color color;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        child: Container(
-          height: 250,
-          width: 165,
-          color: color,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                image,
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Text(
-                name,
-                style: TextStyle(
-                  fontFamily: 'Zain',
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xff313131),
-                ),
-              ),
-            ],
+    return Container(
+      margin: EdgeInsets.only(
+        bottom: 16,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: color,
+      ),
+      height: 204,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            image,
+            width: 135,
+            height: 135,
           ),
-        ),
+          Text(
+            name,
+            style: TextStyle(
+              fontFamily: 'Zain',
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Color(0xff313131),
+            ),
+          ),
+        ],
       ),
     );
   }

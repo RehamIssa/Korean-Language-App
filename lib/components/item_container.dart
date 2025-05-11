@@ -1,33 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:korean_language_app_new/models/items_model.dart';
 
 class ItemContainer extends StatelessWidget {
-  const ItemContainer(
-      {super.key,
-      required this.koreanWord,
-      required this.arabicWord,
-      required this.wordpronunciation,
-      required this.imageUrl,
-      required this.sound});
+  const ItemContainer({super.key, required this.itemModel});
 
-  final String koreanWord;
-  final String arabicWord;
-  final String wordpronunciation;
-  final String imageUrl;
-  final Function sound;
+  final ItemsModel itemModel;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16),
+      margin: EdgeInsets.only(
+        bottom: 16,
+      ),
       height: 132,
       decoration: BoxDecoration(
           border: Border.all(width: 1, color: Color(0xffE4E4E4)),
-          borderRadius: BorderRadius.circular(16)),
+          borderRadius: BorderRadius.circular(16),
+          color: Colors.white),
       child: Row(
         children: [
           IconButton(
             onPressed: () {
-              sound();
+              itemModel.sound();
             },
             icon: Container(
               width: 40,
@@ -42,20 +37,6 @@ class ItemContainer extends StatelessWidget {
               ),
             ),
           ),
-          /*
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Color(0xff313131),
-            ),
-            child: Icon(
-              Icons.volume_up,
-              color: Colors.white,
-            ),
-          ),
-          */
           Spacer(
             flex: 1,
           ),
@@ -64,7 +45,7 @@ class ItemContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                koreanWord,
+                itemModel.koreanWord,
                 style: TextStyle(
                   fontFamily: 'Gontham',
                   fontSize: 25,
@@ -73,7 +54,7 @@ class ItemContainer extends StatelessWidget {
                 ),
               ),
               Text(
-                wordpronunciation,
+                itemModel.pronunciationInArabic,
                 style: TextStyle(
                   fontFamily: 'Zain',
                   fontSize: 16,
@@ -82,7 +63,7 @@ class ItemContainer extends StatelessWidget {
                 ),
               ),
               Text(
-                arabicWord,
+                itemModel.arabicWord,
                 style: TextStyle(
                   fontFamily: 'Zain',
                   fontSize: 20,
@@ -94,7 +75,7 @@ class ItemContainer extends StatelessWidget {
           ),
           SizedBox(width: 12),
           Image.asset(
-            imageUrl,
+            itemModel.image,
             width: 100,
             height: 100,
           ),
